@@ -1,0 +1,130 @@
+{
+  "project": "dev-agent-day2day",
+  "created": "2025-01-07T10:30:00Z",
+  "config": {
+    "max_parallel": 1,
+    "base_branch": "master"
+  },
+  "tasks": [
+    {
+      "id": "p1-bun-server",
+      "title": "Bun server with WebSocket and SQLite",
+      "description": "Set up Bun backend with WebSocket support, SQLite database, REST endpoints",
+      "priority": 1,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": [],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p1-claude-adapter",
+      "title": "Claude Code adapter",
+      "description": "Implement agent adapter pattern with Claude Code CLI spawn and output parsing",
+      "priority": 2,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p1-bun-server"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p1-react-skeleton",
+      "title": "React 3-panel skeleton",
+      "description": "Vite + React + TypeScript + Tailwind + shadcn/ui with 3-panel layout",
+      "priority": 3,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": [],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p1-e2e-integration",
+      "title": "End-to-end integration",
+      "description": "Connect frontend to backend, single session working",
+      "priority": 4,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p1-bun-server", "p1-claude-adapter", "p1-react-skeleton"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": true
+    },
+    {
+      "id": "p2-dashboard-view",
+      "title": "Context Panel - Dashboard view",
+      "description": "Token usage bar, stats cards, active skills, worktree status",
+      "priority": 5,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p1-e2e-integration"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p2-timeline-view",
+      "title": "Context Panel - Timeline view",
+      "description": "Live activity feed, tool calls, MCP activations",
+      "priority": 6,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p1-e2e-integration"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p2-cdd-octopus",
+      "title": "Context Panel - CDD Octopus view",
+      "description": "Visual of context sources feeding the agent",
+      "priority": 7,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p1-e2e-integration"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p2-view-toggle",
+      "title": "Context Panel - View toggle",
+      "description": "Toggle between Dashboard, Timeline, and CDD views",
+      "priority": 8,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p2-dashboard-view", "p2-timeline-view", "p2-cdd-octopus"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": true
+    },
+    {
+      "id": "p3-chat-ui",
+      "title": "Chat Panel - Full UI",
+      "description": "Markdown rendering, collapsible tool calls, streaming, slash commands",
+      "priority": 9,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p2-view-toggle"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": false
+    },
+    {
+      "id": "p3-files-panel",
+      "title": "Files Panel - Full UI",
+      "description": "File tree, diff viewer, syntax highlighting",
+      "priority": 10,
+      "status": "ready",
+      "phase": "implement",
+      "depends_on": ["p2-view-toggle"],
+      "branch": "master",
+      "pr": null,
+      "checkpoint": true
+    }
+  ]
+}
